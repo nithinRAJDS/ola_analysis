@@ -1,0 +1,157 @@
+{
+  "rows": 103024,
+  "cols": 20,
+  "columns": {
+    "Date": {
+      "dtype": "datetime64[ns]",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 40214
+    },
+    "Time": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 1440
+    },
+    "Booking_ID": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 103024
+    },
+    "Booking_Status": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 4
+    },
+    "Customer_ID": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 94544
+    },
+    "Vehicle_Type": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 7
+    },
+    "Pickup_Location": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 50
+    },
+    "Drop_Location": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 50
+    },
+    "V_TAT": {
+      "dtype": "float64",
+      "missing": 39057,
+      "missing_pct": 37.91,
+      "n_unique": 40,
+      "min": 35.0,
+      "max": 308.0,
+      "mean": 170.877,
+      "std": 80.804,
+      "zeros": 0
+    },
+    "C_TAT": {
+      "dtype": "float64",
+      "missing": 39057,
+      "missing_pct": 37.91,
+      "n_unique": 25,
+      "min": 25.0,
+      "max": 145.0,
+      "mean": 84.873,
+      "std": 36.005,
+      "zeros": 0
+    },
+    "Canceled_Rides_by_Customer": {
+      "dtype": "object",
+      "missing": 92525,
+      "missing_pct": 89.81,
+      "n_unique": 5
+    },
+    "Canceled_Rides_by_Driver": {
+      "dtype": "object",
+      "missing": 84590,
+      "missing_pct": 82.11,
+      "n_unique": 4
+    },
+    "Incomplete_Rides": {
+      "dtype": "object",
+      "missing": 39057,
+      "missing_pct": 37.91,
+      "n_unique": 2
+    },
+    "Incomplete_Rides_Reason": {
+      "dtype": "object",
+      "missing": 99098,
+      "missing_pct": 96.19,
+      "n_unique": 3
+    },
+    "Booking_Value": {
+      "dtype": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2883,
+      "min": 100.0,
+      "max": 2999.0,
+      "mean": 548.752,
+      "std": 536.541,
+      "zeros": 0
+    },
+    "Payment_Method": {
+      "dtype": "object",
+      "missing": 39057,
+      "missing_pct": 37.91,
+      "n_unique": 4
+    },
+    "Ride_Distance": {
+      "dtype": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 50,
+      "min": 0.0,
+      "max": 49.0,
+      "mean": 14.19,
+      "std": 15.776,
+      "zeros": 39057
+    },
+    "Driver_Ratings": {
+      "dtype": "float64",
+      "missing": 39057,
+      "missing_pct": 37.91,
+      "n_unique": 21,
+      "min": 3.0,
+      "max": 5.0,
+      "mean": 3.997,
+      "std": 0.577,
+      "zeros": 0
+    },
+    "Customer_Rating": {
+      "dtype": "float64",
+      "missing": 39057,
+      "missing_pct": 37.91,
+      "n_unique": 21,
+      "min": 3.0,
+      "max": 5.0,
+      "mean": 3.998,
+      "std": 0.579,
+      "zeros": 0
+    },
+    "Vehicle Images": {
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 7
+    }
+  },
+  "duplicate_rows": 0
+}

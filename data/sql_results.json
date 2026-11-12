@@ -1,0 +1,638 @@
+[
+  {
+    "id": 1,
+    "title": "Retrieve all successful bookings",
+    "sql": "SELECT Booking_ID, Booking_Datetime, Customer_ID, Vehicle_Type,\n       Pickup_Location, Drop_Location, Ride_Distance, Booking_Value,\n       Payment_Method, Driver_Ratings, Customer_Rating\nFROM   bookings\nWHERE  Booking_Status = 'Success'\nORDER  BY Booking_Datetime\nLIMIT  10",
+    "columns": [
+      "Booking_ID",
+      "Booking_Datetime",
+      "Customer_ID",
+      "Vehicle_Type",
+      "Pickup_Location",
+      "Drop_Location",
+      "Ride_Distance",
+      "Booking_Value",
+      "Payment_Method",
+      "Driver_Ratings",
+      "Customer_Rating"
+    ],
+    "rows": [
+      [
+        "CNR4197668379",
+        "2024-07-01 00:00:00",
+        "CID451984",
+        "Prime Plus",
+        "Malleshwaram",
+        "BTM Layout",
+        31,
+        791,
+        "Cash",
+        3.1,
+        4.7
+      ],
+      [
+        "CNR3610392570",
+        "2024-07-01 00:03:00",
+        "CID569014",
+        "E-Bike",
+        "JP Nagar",
+        "Sarjapur Road",
+        26,
+        120,
+        "Credit Card",
+        3.1,
+        4.4
+      ],
+      [
+        "CNR8282131599",
+        "2024-07-01 00:04:00",
+        "CID332553",
+        "Auto",
+        "Langford Town",
+        "JP Nagar",
+        5,
+        170,
+        "Cash",
+        4.3,
+        3.5
+      ],
+      [
+        "CNR4163786807",
+        "2024-07-01 00:04:00",
+        "CID967658",
+        "Prime Sedan",
+        "Hebbal",
+        "Varthur",
+        3,
+        914,
+        "UPI",
+        4.8,
+        3.3
+      ],
+      [
+        "CNR8299032288",
+        "2024-07-01 00:04:00",
+        "CID874321",
+        "Bike",
+        "Shivajinagar",
+        "Ulsoor",
+        14,
+        239,
+        "Cash",
+        5.0,
+        3.5
+      ],
+      [
+        "CNR4467034507",
+        "2024-07-01 00:04:00",
+        "CID783274",
+        "Prime Plus",
+        "Cox Town",
+        "Yelahanka",
+        26,
+        432,
+        "Cash",
+        3.8,
+        3.5
+      ],
+      [
+        "CNR2979520888",
+        "2024-07-01 00:05:00",
+        "CID815153",
+        "E-Bike",
+        "Indiranagar",
+        "JP Nagar",
+        10,
+        127,
+        "Cash",
+        3.9,
+        4.1
+      ],
+      [
+        "CNR5741290724",
+        "2024-07-01 00:05:00",
+        "CID433994",
+        "Bike",
+        "Devanahalli",
+        "Chickpet",
+        42,
+        359,
+        "UPI",
+        4.5,
+        4.9
+      ],
+      [
+        "CNR6847847892",
+        "2024-07-01 00:05:00",
+        "CID687346",
+        "Prime Sedan",
+        "Cox Town",
+        "MG Road",
+        22,
+        943,
+        "Cash",
+        4.2,
+        4.8
+      ],
+      [
+        "CNR1899273989",
+        "2024-07-01 00:06:00",
+        "CID867477",
+        "E-Bike",
+        "Bannerghatta Road",
+        "Banashankari",
+        3,
+        438,
+        "UPI",
+        4.4,
+        4.2
+      ]
+    ],
+    "row_count": 10,
+    "total_matching_rows": 63967
+  },
+  {
+    "id": 2,
+    "title": "Average ride distance for each vehicle type",
+    "sql": "SELECT Vehicle_Type,\n       COUNT(*)                     AS Total_Rides,\n       ROUND(AVG(Ride_Distance), 2) AS Avg_Ride_Distance_km,\n       ROUND(MIN(Ride_Distance), 2) AS Min_Distance_km,\n       ROUND(MAX(Ride_Distance), 2) AS Max_Distance_km,\n       ROUND(SUM(Ride_Distance), 0) AS Total_Distance_km\nFROM   bookings\nWHERE  Booking_Status = 'Success'\nGROUP  BY Vehicle_Type\nORDER  BY Avg_Ride_Distance_km DESC",
+    "columns": [
+      "Vehicle_Type",
+      "Total_Rides",
+      "Avg_Ride_Distance_km",
+      "Min_Distance_km",
+      "Max_Distance_km",
+      "Total_Distance_km"
+    ],
+    "rows": [
+      [
+        "E-Bike",
+        9180,
+        25.15,
+        1.0,
+        49.0,
+        230842.0
+      ],
+      [
+        "Prime Plus",
+        9075,
+        25.03,
+        1.0,
+        49.0,
+        227186.0
+      ],
+      [
+        "Prime Sedan",
+        9379,
+        25.01,
+        1.0,
+        49.0,
+        234535.0
+      ],
+      [
+        "Mini",
+        9036,
+        24.98,
+        1.0,
+        49.0,
+        225703.0
+      ],
+      [
+        "Bike",
+        9134,
+        24.93,
+        1.0,
+        49.0,
+        227746.0
+      ],
+      [
+        "Prime SUV",
+        8996,
+        24.88,
+        1.0,
+        49.0,
+        223848.0
+      ],
+      [
+        "Auto",
+        9167,
+        10.04,
+        1.0,
+        19.0,
+        92043.0
+      ]
+    ],
+    "row_count": 7,
+    "total_matching_rows": null
+  },
+  {
+    "id": 3,
+    "title": "Total number of cancelled rides by customers",
+    "sql": "SELECT COUNT(*) AS Customer_Cancelled_Rides\nFROM   bookings\nWHERE  Booking_Status = 'Canceled by Customer'",
+    "columns": [
+      "Customer_Cancelled_Rides"
+    ],
+    "rows": [
+      [
+        10499
+      ]
+    ],
+    "row_count": 1,
+    "total_matching_rows": null
+  },
+  {
+    "id": 4,
+    "title": "Top 5 customers who booked the highest number of rides",
+    "sql": "SELECT Customer_ID,\n       COUNT(*) AS Total_Bookings,\n       SUM(CASE WHEN Booking_Status='Success' THEN 1 ELSE 0 END) AS Successful_Bookings,\n       ROUND(SUM(CASE WHEN Booking_Status='Success' THEN Booking_Value ELSE 0 END),0) AS Total_Spend_INR\nFROM   bookings\nGROUP  BY Customer_ID\nORDER  BY Total_Bookings DESC, Total_Spend_INR DESC\nLIMIT  5",
+    "columns": [
+      "Customer_ID",
+      "Total_Bookings",
+      "Successful_Bookings",
+      "Total_Spend_INR"
+    ],
+    "rows": [
+      [
+        "CID954071",
+        5,
+        3,
+        1796.0
+      ],
+      [
+        "CID836942",
+        4,
+        4,
+        6019.0
+      ],
+      [
+        "CID387617",
+        4,
+        3,
+        3529.0
+      ],
+      [
+        "CID635963",
+        4,
+        4,
+        2841.0
+      ],
+      [
+        "CID309168",
+        4,
+        1,
+        2226.0
+      ]
+    ],
+    "row_count": 5,
+    "total_matching_rows": null
+  },
+  {
+    "id": 5,
+    "title": "Rides cancelled by drivers due to personal and car-related issues",
+    "sql": "SELECT COUNT(*) AS Driver_Cancelled_Personal_Car_Issue\nFROM   bookings\nWHERE  Booking_Status = 'Canceled by Driver'\n  AND  Canceled_Rides_by_Driver = 'Personal & Car related issue'",
+    "columns": [
+      "Driver_Cancelled_Personal_Car_Issue"
+    ],
+    "rows": [
+      [
+        6542
+      ]
+    ],
+    "row_count": 1,
+    "total_matching_rows": null
+  },
+  {
+    "id": 6,
+    "title": "Maximum and minimum driver ratings for Prime Sedan bookings",
+    "sql": "SELECT Vehicle_Type,\n       COUNT(Driver_Ratings)         AS Rated_Rides,\n       ROUND(MIN(Driver_Ratings),2)  AS Min_Driver_Rating,\n       ROUND(MAX(Driver_Ratings),2)  AS Max_Driver_Rating,\n       ROUND(AVG(Driver_Ratings),2)  AS Avg_Driver_Rating\nFROM   bookings\nWHERE  Vehicle_Type = 'Prime Sedan' AND Driver_Ratings IS NOT NULL\nGROUP  BY Vehicle_Type",
+    "columns": [
+      "Vehicle_Type",
+      "Rated_Rides",
+      "Min_Driver_Rating",
+      "Max_Driver_Rating",
+      "Avg_Driver_Rating"
+    ],
+    "rows": [
+      [
+        "Prime Sedan",
+        9379,
+        3.0,
+        5.0,
+        3.99
+      ]
+    ],
+    "row_count": 1,
+    "total_matching_rows": null
+  },
+  {
+    "id": 7,
+    "title": "All rides where payment was made using UPI",
+    "sql": "SELECT Booking_ID, Booking_Datetime, Customer_ID, Vehicle_Type,\n       Ride_Distance, Booking_Value, Payment_Method\nFROM   bookings\nWHERE  Payment_Method = 'UPI'\nORDER  BY Booking_Value DESC\nLIMIT  10",
+    "columns": [
+      "Booking_ID",
+      "Booking_Datetime",
+      "Customer_ID",
+      "Vehicle_Type",
+      "Ride_Distance",
+      "Booking_Value",
+      "Payment_Method"
+    ],
+    "rows": [
+      [
+        "CNR6913681615",
+        "2024-07-30 16:57:00",
+        "CID159544",
+        "Prime Sedan",
+        27,
+        2998,
+        "UPI"
+      ],
+      [
+        "CNR7897426170",
+        "2024-07-22 20:55:00",
+        "CID980150",
+        "E-Bike",
+        41,
+        2998,
+        "UPI"
+      ],
+      [
+        "CNR6383754055",
+        "2024-07-16 03:20:00",
+        "CID440575",
+        "Mini",
+        19,
+        2997,
+        "UPI"
+      ],
+      [
+        "CNR4417811060",
+        "2024-07-06 12:32:00",
+        "CID845787",
+        "Prime SUV",
+        19,
+        2996,
+        "UPI"
+      ],
+      [
+        "CNR1989664706",
+        "2024-07-16 19:54:00",
+        "CID928507",
+        "Prime Sedan",
+        23,
+        2996,
+        "UPI"
+      ],
+      [
+        "CNR1801719827",
+        "2024-07-17 21:50:00",
+        "CID924799",
+        "Mini",
+        26,
+        2995,
+        "UPI"
+      ],
+      [
+        "CNR9650710703",
+        "2024-07-17 07:46:00",
+        "CID326153",
+        "Prime Sedan",
+        4,
+        2994,
+        "UPI"
+      ],
+      [
+        "CNR8085516918",
+        "2024-07-02 18:59:00",
+        "CID150442",
+        "Bike",
+        3,
+        2993,
+        "UPI"
+      ],
+      [
+        "CNR4134635551",
+        "2024-07-06 08:23:00",
+        "CID868113",
+        "Auto",
+        8,
+        2993,
+        "UPI"
+      ],
+      [
+        "CNR4155514134",
+        "2024-07-31 08:23:00",
+        "CID868113",
+        "Auto",
+        8,
+        2993,
+        "UPI"
+      ]
+    ],
+    "row_count": 10,
+    "total_matching_rows": 25881
+  },
+  {
+    "id": 8,
+    "title": "Average customer rating per vehicle type",
+    "sql": "SELECT Vehicle_Type,\n       COUNT(Customer_Rating)         AS Rated_Rides,\n       ROUND(AVG(Customer_Rating),3)  AS Avg_Customer_Rating,\n       ROUND(MIN(Customer_Rating),2)  AS Min_Rating,\n       ROUND(MAX(Customer_Rating),2)  AS Max_Rating\nFROM   bookings\nWHERE  Customer_Rating IS NOT NULL\nGROUP  BY Vehicle_Type\nORDER  BY Avg_Customer_Rating DESC",
+    "columns": [
+      "Vehicle_Type",
+      "Rated_Rides",
+      "Avg_Customer_Rating",
+      "Min_Rating",
+      "Max_Rating"
+    ],
+    "rows": [
+      [
+        "Prime Plus",
+        9075,
+        4.009,
+        3.0,
+        5.0
+      ],
+      [
+        "Prime Sedan",
+        9379,
+        4.002,
+        3.0,
+        5.0
+      ],
+      [
+        "Auto",
+        9167,
+        3.999,
+        3.0,
+        5.0
+      ],
+      [
+        "Prime SUV",
+        8996,
+        3.999,
+        3.0,
+        5.0
+      ],
+      [
+        "Mini",
+        9036,
+        3.998,
+        3.0,
+        5.0
+      ],
+      [
+        "Bike",
+        9134,
+        3.993,
+        3.0,
+        5.0
+      ],
+      [
+        "E-Bike",
+        9180,
+        3.988,
+        3.0,
+        5.0
+      ]
+    ],
+    "row_count": 7,
+    "total_matching_rows": null
+  },
+  {
+    "id": 9,
+    "title": "Total booking value of rides completed successfully",
+    "sql": "SELECT COUNT(*)                             AS Successful_Rides,\n       ROUND(SUM(Booking_Value),0)            AS Total_Booking_Value_INR,\n       ROUND(AVG(Booking_Value),2)            AS Avg_Booking_Value_INR,\n       ROUND(SUM(Booking_Value)/1000000.0,2)  AS Total_Value_INR_Millions\nFROM   bookings\nWHERE  Booking_Status = 'Success'",
+    "columns": [
+      "Successful_Rides",
+      "Total_Booking_Value_INR",
+      "Avg_Booking_Value_INR",
+      "Total_Value_INR_Millions"
+    ],
+    "rows": [
+      [
+        63967,
+        35080467.0,
+        548.42,
+        35.08
+      ]
+    ],
+    "row_count": 1,
+    "total_matching_rows": null
+  },
+  {
+    "id": 10,
+    "title": "All incomplete rides along with the reason",
+    "sql": "SELECT Booking_ID, Booking_Datetime, Customer_ID, Vehicle_Type,\n       Pickup_Location, Drop_Location, Booking_Value, Incomplete_Rides_Reason\nFROM   bookings\nWHERE  Incomplete_Rides = 'Yes'\nORDER  BY Booking_Datetime\nLIMIT  10",
+    "columns": [
+      "Booking_ID",
+      "Booking_Datetime",
+      "Customer_ID",
+      "Vehicle_Type",
+      "Pickup_Location",
+      "Drop_Location",
+      "Booking_Value",
+      "Incomplete_Rides_Reason"
+    ],
+    "rows": [
+      [
+        "CNR3610392570",
+        "2024-07-01 00:03:00",
+        "CID569014",
+        "E-Bike",
+        "JP Nagar",
+        "Sarjapur Road",
+        120,
+        "Customer Demand"
+      ],
+      [
+        "CNR3318158193",
+        "2024-07-01 00:16:00",
+        "CID567241",
+        "Prime Plus",
+        "Koramangala",
+        "Kengeri",
+        296,
+        "Other Issue"
+      ],
+      [
+        "CNR2686959624",
+        "2024-07-01 00:49:00",
+        "CID250621",
+        "E-Bike",
+        "Shivajinagar",
+        "Chamarajpet",
+        311,
+        "Customer Demand"
+      ],
+      [
+        "CNR7652372986",
+        "2024-07-01 00:59:00",
+        "CID458607",
+        "Bike",
+        "Electronic City",
+        "Jayanagar",
+        734,
+        "Other Issue"
+      ],
+      [
+        "CNR3946841728",
+        "2024-07-01 01:12:00",
+        "CID979652",
+        "Mini",
+        "Koramangala",
+        "HSR Layout",
+        281,
+        "Vehicle Breakdown"
+      ],
+      [
+        "CNR6620843617",
+        "2024-07-01 01:32:00",
+        "CID485768",
+        "Bike",
+        "Vijayanagar",
+        "Peenya",
+        326,
+        "Vehicle Breakdown"
+      ],
+      [
+        "CNR2938090917",
+        "2024-07-01 01:43:00",
+        "CID873875",
+        "Prime SUV",
+        "Rajajinagar",
+        "Bannerghatta Road",
+        456,
+        "Customer Demand"
+      ],
+      [
+        "CNR1577787158",
+        "2024-07-01 01:51:00",
+        "CID815622",
+        "Auto",
+        "Yeshwanthpur",
+        "Peenya",
+        2158,
+        "Customer Demand"
+      ],
+      [
+        "CNR3356976817",
+        "2024-07-01 02:03:00",
+        "CID469728",
+        "Prime SUV",
+        "Indiranagar",
+        "Majestic",
+        886,
+        "Other Issue"
+      ],
+      [
+        "CNR5658866654",
+        "2024-07-01 02:05:00",
+        "CID646144",
+        "Mini",
+        "Koramangala",
+        "HSR Layout",
+        2811,
+        "Vehicle Breakdown"
+      ]
+    ],
+    "row_count": 10,
+    "total_matching_rows": 3926
+  }
+]

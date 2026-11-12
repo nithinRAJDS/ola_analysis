@@ -1,0 +1,50 @@
+{
+  "rows_before": 103024,
+  "rows_after": 103024,
+  "cols_before": 20,
+  "cols_after": 37,
+  "completeness_before_pct": 75.22,
+  "completeness_after_pct": 94.88,
+  "duplicate_rows_before": 0,
+  "duplicate_rows_after": 0,
+  "unparseable_datetimes": 0,
+  "success_rides": 63967,
+  "non_success_rides": 39057,
+  "zero_distance_rides": 39057,
+  "outliers": {
+    "V_TAT": {
+      "iqr_low": -112.0,
+      "iqr_high": 448.0,
+      "n_outliers": 0
+    },
+    "C_TAT": {
+      "iqr_low": -35.0,
+      "iqr_high": 205.0,
+      "n_outliers": 0
+    },
+    "Booking_Value": {
+      "iqr_low": -326.5,
+      "iqr_high": 1189.5,
+      "n_outliers": 8468
+    },
+    "Ride_Distance": {
+      "iqr_low": -39.0,
+      "iqr_high": 65.0,
+      "n_outliers": 0
+    }
+  },
+  "derived_features": [
+    "Booking_Hour",
+    "Booking_DayOfWeek",
+    "DayOfWeek_Num",
+    "Is_Weekend",
+    "Time_of_Day",
+    "Distance_Bucket",
+    "Value_Bucket",
+    "Fare_per_km",
+    "Customer_Cancel_Category",
+    "Driver_Cancel_Category",
+    "Incomplete_Reason_Category"
+  ],
+  "structural_missing_note": "V_TAT, C_TAT, Driver_Ratings, Customer_Rating and Payment_Method are NULL for the 39,057 non-successful bookings by design (no trip occurred). These are retained as NULL, not imputed."
+}

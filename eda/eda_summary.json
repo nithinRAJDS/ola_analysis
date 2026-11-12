@@ -1,0 +1,301 @@
+{
+  "dataset": {
+    "raw_rows": 103024,
+    "raw_cols": 20,
+    "clean_rows": 103024,
+    "clean_cols": 34,
+    "date_min": "2024-07-01",
+    "date_max": "2024-07-31",
+    "n_days": 31,
+    "n_customers": 94544,
+    "n_areas": 50,
+    "n_vehicles": 7
+  },
+  "distributions": {
+    "Ride_Distance": {
+      "mean": 14.19,
+      "median": 8.0,
+      "std": 15.78,
+      "min": 0.0,
+      "max": 49.0,
+      "p95": 45.0,
+      "n": 103024
+    },
+    "Booking_Value": {
+      "mean": 548.75,
+      "median": 386.0,
+      "std": 536.54,
+      "min": 100.0,
+      "max": 2999.0,
+      "p95": 1899.0,
+      "n": 103024
+    },
+    "Driver_Ratings": {
+      "mean": 4.0,
+      "median": 4.0,
+      "std": 0.58,
+      "min": 3.0,
+      "max": 5.0,
+      "p95": 4.9,
+      "n": 63967
+    },
+    "Customer_Rating": {
+      "mean": 4.0,
+      "median": 4.0,
+      "std": 0.58,
+      "min": 3.0,
+      "max": 5.0,
+      "p95": 4.9,
+      "n": 63967
+    },
+    "V_TAT": {
+      "mean": 170.88,
+      "median": 168.0,
+      "std": 80.8,
+      "min": 35.0,
+      "max": 308.0,
+      "p95": 301.0,
+      "n": 63967
+    },
+    "C_TAT": {
+      "mean": 84.87,
+      "median": 85.0,
+      "std": 36.01,
+      "min": 25.0,
+      "max": 145.0,
+      "p95": 140.0,
+      "n": 63967
+    }
+  },
+  "booking_status": {
+    "counts": {
+      "Success": 63967,
+      "Canceled by Driver": 18434,
+      "Canceled by Customer": 10499,
+      "Driver Not Found": 10124
+    },
+    "success_rate_pct": 62.09,
+    "failure_rate_pct": 37.91
+  },
+  "trends": {
+    "daily_mean": 3323.4,
+    "daily_min": 3072,
+    "daily_max": 3432,
+    "daily_std": 70.3,
+    "cv_pct": 2.12,
+    "busiest_day": "2024-07-30",
+    "quietest_day": "2024-07-31",
+    "total_revenue": 35080467.0,
+    "avg_daily_revenue": 1131627.97
+  },
+  "peak_demand": {
+    "peak_hour": 12,
+    "peak_hour_bookings": 4408,
+    "trough_hour": 18,
+    "trough_hour_bookings": 4176,
+    "hourly_spread_pct": 5.4,
+    "hourly_counts": {
+      "0": 4318,
+      "1": 4329,
+      "2": 4305,
+      "3": 4201,
+      "4": 4263,
+      "5": 4264,
+      "6": 4271,
+      "7": 4304,
+      "8": 4374,
+      "9": 4347,
+      "10": 4334,
+      "11": 4272,
+      "12": 4408,
+      "13": 4285,
+      "14": 4232,
+      "15": 4376,
+      "16": 4261,
+      "17": 4353,
+      "18": 4176,
+      "19": 4271,
+      "20": 4228,
+      "21": 4343,
+      "22": 4283,
+      "23": 4226
+    },
+    "time_of_day": {
+      "Late Night (00-05)": 21416,
+      "Afternoon (12-16)": 17301,
+      "Early Morning (05-09)": 17213,
+      "Night (20-24)": 17080,
+      "Evening Peak (16-20)": 17061,
+      "Morning (09-12)": 12953
+    },
+    "largest_block": "Late Night (00-05)"
+  },
+  "vehicle_types": {
+    "Prime Sedan": {
+      "bookings": 14877,
+      "revenue": 8298612.0,
+      "avg_distance": 15.76,
+      "avg_value": 557.81,
+      "avg_driver_rating": 3.991,
+      "avg_customer_rating": 4.002
+    },
+    "E-Bike": {
+      "bookings": 14816,
+      "revenue": 8181523.0,
+      "avg_distance": 15.58,
+      "avg_value": 552.21,
+      "avg_driver_rating": 4.007,
+      "avg_customer_rating": 3.988
+    },
+    "Auto": {
+      "bookings": 14755,
+      "revenue": 8092210.0,
+      "avg_distance": 6.24,
+      "avg_value": 548.44,
+      "avg_driver_rating": 4.004,
+      "avg_customer_rating": 3.999
+    },
+    "Prime Plus": {
+      "bookings": 14707,
+      "revenue": 8050889.0,
+      "avg_distance": 15.45,
+      "avg_value": 547.42,
+      "avg_driver_rating": 3.998,
+      "avg_customer_rating": 4.009
+    },
+    "Bike": {
+      "bookings": 14662,
+      "revenue": 7987054.0,
+      "avg_distance": 15.53,
+      "avg_value": 544.75,
+      "avg_driver_rating": 3.985,
+      "avg_customer_rating": 3.993
+    },
+    "Prime SUV": {
+      "bookings": 14655,
+      "revenue": 7933330.0,
+      "avg_distance": 15.27,
+      "avg_value": 541.34,
+      "avg_driver_rating": 4.006,
+      "avg_customer_rating": 3.999
+    },
+    "Mini": {
+      "bookings": 14552,
+      "revenue": 7990996.0,
+      "avg_distance": 15.51,
+      "avg_value": 549.13,
+      "avg_driver_rating": 3.993,
+      "avg_customer_rating": 3.998
+    }
+  },
+  "pricing": {
+    "fare_distance_correlation": 0.0019,
+    "payment_mix": {
+      "Cash": 35022,
+      "UPI": 25881,
+      "Credit Card": 2435,
+      "Debit Card": 629
+    },
+    "payment_share_pct": {
+      "Cash": 54.75,
+      "UPI": 40.46,
+      "Credit Card": 3.81,
+      "Debit Card": 0.98
+    },
+    "median_fare_per_km_by_vehicle": {
+      "Auto": 43.88,
+      "Prime Plus": 18.04,
+      "Prime Sedan": 17.83,
+      "Mini": 17.79,
+      "Prime SUV": 17.77,
+      "Bike": 17.67,
+      "E-Bike": 17.52
+    },
+    "avg_fare_per_km": 20.35,
+    "cash_upi_share_pct": 95.21
+  },
+  "cancellations": {
+    "customer_total": 10499,
+    "driver_total": 18434,
+    "driver_not_found": 10124,
+    "customer_reasons": {
+      "Driver is not moving towards pickup location": 3175,
+      "Driver asked to cancel": 2670,
+      "Change of plans": 2081,
+      "AC is Not working": 1568,
+      "Wrong Address": 1005
+    },
+    "driver_reasons": {
+      "Personal & Car related issue": 6542,
+      "Customer related issue": 5413,
+      "Customer was coughing/sick": 3654,
+      "More than permitted people in there": 2825
+    },
+    "personal_car_issue": 6542,
+    "non_success_rate_by_vehicle_pct": {
+      "Prime SUV": 38.61,
+      "Prime Plus": 38.29,
+      "E-Bike": 38.04,
+      "Mini": 37.91,
+      "Auto": 37.87,
+      "Bike": 37.7,
+      "Prime Sedan": 36.96
+    }
+  },
+  "ratings": {
+    "driver_mean": 3.997,
+    "customer_mean": 3.998,
+    "driver_min": 3.0,
+    "driver_max": 5.0,
+    "customer_min": 3.0,
+    "customer_max": 5.0,
+    "correlation": -0.0028,
+    "n_rated": 63967
+  },
+  "correlations": {
+    "Ride_Distance~Booking_Value": 0.0005,
+    "Ride_Distance~V_TAT": -0.0112,
+    "Ride_Distance~C_TAT": 0.0001,
+    "Ride_Distance~Driver_Ratings": -0.0072,
+    "Ride_Distance~Customer_Rating": 0.0099,
+    "Ride_Distance~Booking_Hour": -0.005,
+    "Ride_Distance~Fare_per_km": -0.3814,
+    "Booking_Value~V_TAT": -0.0037,
+    "Booking_Value~C_TAT": -0.0044,
+    "Booking_Value~Driver_Ratings": -0.0013,
+    "Booking_Value~Customer_Rating": 0.0062,
+    "Booking_Value~Booking_Hour": -0.0071,
+    "Booking_Value~Fare_per_km": 0.3956,
+    "V_TAT~C_TAT": 0.0002,
+    "V_TAT~Driver_Ratings": -0.0023,
+    "V_TAT~Customer_Rating": 0.0006,
+    "V_TAT~Booking_Hour": 0.0049,
+    "V_TAT~Fare_per_km": 0.0013,
+    "C_TAT~Driver_Ratings": -0.0028,
+    "C_TAT~Customer_Rating": 0.001,
+    "C_TAT~Booking_Hour": 0.0007,
+    "C_TAT~Fare_per_km": -0.003,
+    "Driver_Ratings~Customer_Rating": -0.0028,
+    "Driver_Ratings~Booking_Hour": -0.0033,
+    "Driver_Ratings~Fare_per_km": 0.001,
+    "Customer_Rating~Booking_Hour": 0.004,
+    "Customer_Rating~Fare_per_km": -0.0048,
+    "Booking_Hour~Fare_per_km": -0.0016
+  },
+  "anomalies": {
+    "zero_distance_rides": 39057,
+    "zero_distance_pct": 37.91,
+    "zero_distance_successful": 0,
+    "duplicate_booking_ids": 0,
+    "duplicate_customer_time_area": 0,
+    "extreme_fare_iqr": 8468,
+    "fare_per_km_over_200": 3591,
+    "fare_per_km_over_500": 889,
+    "area_mean_non_success_pct": 37.91,
+    "area_sd_pct": 0.99,
+    "outlier_areas": {
+      "Vijayanagar": 40.18
+    },
+    "verdict": "No duplicate booking IDs and no same-customer/same-time duplicates \u2014 the dataset is clean on classic fraud signals. Zero-distance rides are structural (cancelled/not-found bookings), not fraud. The real anomaly signal is fare-per-km: 889 successful rides bill above INR 500/km and warrant audit."
+  }
+}

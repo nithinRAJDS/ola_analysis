@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OLA Rides — Power BI Dashboard Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',system-ui,sans-serif;background:#E9EDF0;color:#262626;padding:24px}
+.intro{max-width:1280px;margin:0 auto 20px;background:#fff;border-radius:12px;padding:20px 24px;border-left:6px solid #92D050}
+.intro h1{font-size:20px;margin-bottom:6px}
+.intro p{font-size:13px;color:#595959;line-height:1.6}
+.page{max-width:1280px;margin:0 auto 28px;background:#F7F9FA;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.10)}
+.hdr{height:64px;background:#262626;display:flex;align-items:center;padding:0 24px;gap:20px}
+.hdr-t{color:#fff;font-size:18px;font-weight:600;flex:1}
+.hdr-nav{display:flex;gap:6px}
+.hdr-nav a{color:#AEAEAE;text-decoration:none;font-size:11px;padding:6px 10px;border-radius:6px}
+.hdr-nav a.on{background:#92D050;color:#262626;font-weight:600}
+.hdr-logo{color:#92D050;font-weight:700;font-size:16px;letter-spacing:1px}
+.body{display:flex;min-height:600px}
+.rail{width:200px;background:#fff;border-right:1px solid #E6E6E6;padding:14px 12px;display:flex;flex-direction:column;gap:10px}
+.sl{border:1px solid #E6E6E6;border-radius:8px;padding:8px 10px}
+.sl-h{font-size:10px;font-weight:600;color:#262626;text-transform:uppercase;letter-spacing:.4px}
+.sl-v{font-size:11px;color:#595959;margin-top:3px}
+.main{flex:1;padding:16px;display:flex;flex-direction:column;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:#fff;border:1px solid #E6E6E6;border-radius:10px;padding:14px 16px}
+.kv{font-size:26px;font-weight:700;line-height:1.1}
+.kl{font-size:10px;color:#595959;margin-top:4px;text-transform:uppercase;letter-spacing:.4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;border:1px solid #E6E6E6;border-radius:10px;padding:14px 16px}
+.card.wide{grid-column:span 1}
+.ct{font-size:12px;font-weight:600;color:#262626;margin-bottom:12px}
+.spark{width:100%;height:150px;display:block}
+.axis{display:flex;justify-content:space-between;font-size:9px;color:#AEAEAE;margin-top:4px}
+.hb{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:11px}
+.hbl{width:150px;color:#404040;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hbt{flex:1;height:16px;background:#F0F3F5;border-radius:4px;overflow:hidden}
+.hbf{display:block;height:100%;border-radius:4px}
+.hbv{width:88px;text-align:right;font-weight:600;color:#262626;flex-shrink:0}
+.donutwrap{display:flex;align-items:center;gap:18px}
+.legend{display:flex;flex-direction:column;gap:7px;font-size:11px}
+.lg{display:flex;align-items:center;gap:7px;color:#404040}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+.pct{color:#AEAEAE;font-size:10px}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{background:#262626;color:#fff;text-align:left;padding:8px 10px;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.3px}
+.tbl td{padding:7px 10px;border-bottom:1px solid #EEF1F3;color:#404040}
+.tbl tbody tr:nth-child(even){background:#F7F9FA}
+.r{text-align:right}
+.cols{display:flex;align-items:flex-end;gap:6px;padding-top:10px}
+.col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.colb{width:100%;border-radius:3px 3px 0 0}
+.coll{font-size:8px;color:#AEAEAE;margin-top:4px}
+.note{font-size:12px;color:#404040;line-height:1.6;border-left:4px solid #92D050;background:#F4FBEC}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.rail{display:none}}
+</style></head>
+<body>
+<div class="intro">
+  <h1>OLA Rides Analytics — Power BI Dashboard Mockup</h1>
+  <p>Static visual mockup of the 5-page Power BI report, rendered with the real
+  numbers from the cleaned dataset (103,024 bookings, July 2024). Use this to
+  review layout and content before building the .pbix — the build guide
+  (<code>POWERBI_BUILD_GUIDE.md</code>) specifies every visual, measure and
+  formatting choice. Palette and typography match <code>Ola-Slides.pptx</code>.</p>
+</div>
+
+<section class="page" id="p1">
+  <header class="hdr"><div class="hdr-t">Overall</div>
+    <div class="hdr-nav"><a href="#p1" class="on">Overall</a><a href="#p2" class="">Vehicle Type</a><a href="#p3" class="">Revenue</a><a href="#p4" class="">Cancellation</a><a href="#p5" class="">Ratings</a></div>
+    <div class="hdr-logo">OLA</div>
+  </header>
+  <div class="body">
+    <aside class="rail">
+      <div class="sl"><div class="sl-h">Date Range</div><div class="sl-v">01 Jul – 31 Jul 2024</div></div>
+      <div class="sl"><div class="sl-h">Vehicle Type</div><div class="sl-v">All (7)</div></div>
+      <div class="sl"><div class="sl-h">Payment Method</div><div class="sl-v">All (4)</div></div>
+      <div class="sl"><div class="sl-h">Booking Status</div><div class="sl-v">All (4)</div></div>
+    </aside>
+    <main class="main">
+<div class="kpis">
+  <div class="kpi"><div class="kv" style="color:#262626">103,024</div><div class="kl">Total Bookings</div></div>
+  <div class="kpi"><div class="kv" style="color:#92D050">62.1%</div><div class="kl">Success Rate</div></div>
+  <div class="kpi"><div class="kv" style="color:#262626">₹35.08M</div><div class="kl">Total Revenue</div></div>
+  <div class="kpi"><div class="kv" style="color:#058DC7">22.9 km</div><div class="kl">Avg Distance</div></div>
+</div>
+<div class="grid2">
+  <div class="card wide"><div class="ct">Ride Volume Over Time</div><svg viewBox="0 0 980 150" class="spark" preserveAspectRatio="none"><polygon points="0,150 0.0,39.2 32.7,25.9 65.3,36.7 98.0,67.1 130.7,55.5 163.3,64.5 196.0,85.5 228.7,53.0 261.3,36.7 294.0,30.6 326.7,78.6 359.3,28.1 392.0,18.3 424.7,55.1 457.3,51.2 490.0,32.0 522.7,42.1 555.3,36.4 588.0,50.8 620.7,61.6 653.3,80.4 686.0,29.9 718.7,29.9 751.3,62.7 784.0,35.6 816.7,43.9 849.3,35.3 882.0,77.2 914.7,32.4 947.3,10.0 980.0,140.0 980,150" fill="#058DC7" opacity="0.12"/><polyline points="0.0,39.2 32.7,25.9 65.3,36.7 98.0,67.1 130.7,55.5 163.3,64.5 196.0,85.5 228.7,53.0 261.3,36.7 294.0,30.6 326.7,78.6 359.3,28.1 392.0,18.3 424.7,55.1 457.3,51.2 490.0,32.0 522.7,42.1 555.3,36.4 588.0,50.8 620.7,61.6 653.3,80.4 686.0,29.9 718.7,29.9 751.3,62.7 784.0,35.6 816.7,43.9 849.3,35.3 882.0,77.2 914.7,32.4 947.3,10.0 980.0,140.0" fill="none" stroke="#058DC7" stroke-width="2.5"/></svg>
+    <div class="axis"><span>01 Jul</span><span>15 Jul</span><span>31 Jul</span></div></div>
+  <div class="card"><div class="ct">Booking Status Breakdown</div>
+    <div class="donutwrap"><svg viewBox="0 0 190 190" width="190" height="190"><circle cx="95.0" cy="95.0" r="70" fill="none" stroke="#92D050" stroke-width="26" stroke-dasharray="273.08 439.82" stroke-dashoffset="0.00" transform="rotate(-90 95.0 95.0)"/><circle cx="95.0" cy="95.0" r="70" fill="none" stroke="#ED561B" stroke-width="26" stroke-dasharray="78.70 439.82" stroke-dashoffset="-273.08" transform="rotate(-90 95.0 95.0)"/><circle cx="95.0" cy="95.0" r="70" fill="none" stroke="#EDEF00" stroke-width="26" stroke-dasharray="44.82 439.82" stroke-dashoffset="-351.78" transform="rotate(-90 95.0 95.0)"/><circle cx="95.0" cy="95.0" r="70" fill="none" stroke="#AEAEAE" stroke-width="26" stroke-dasharray="43.22 439.82" stroke-dashoffset="-396.60" transform="rotate(-90 95.0 95.0)"/></svg><div class="legend"><div class="lg"><span class="dot" style="background:#92D050"></span>Success <b>63,967</b> <span class="pct">62.1%</span></div><div class="lg"><span class="dot" style="background:#ED561B"></span>Canceled by Driver <b>18,434</b> <span class="pct">17.9%</span></div><div class="lg"><span class="dot" style="background:#EDEF00"></span>Canceled by Customer <b>10,499</b> <span class="pct">10.2%</span></div><div class="lg"><span class="dot" style="background:#AEAEAE"></span>Driver Not Found <b>10,124</b> <span class="pct">9.8%</span></div></div></div></div>
+</div>
+<div class="card"><div class="ct">Status Detail</div>
+<table class="tbl"><thead><tr><th>Booking Status</th><th class="r">Bookings</th><th class="r">Share</th></tr></thead><tbody>
+<tr><td>Success</td><td class="r">63,967</td><td class="r">62.1%</td></tr><tr><td>Canceled by Driver</td><td class="r">18,434</td><td class="r">17.9%</td></tr><tr><td>Canceled by Customer</td><td class="r">10,499</td><td class="r">10.2%</td></tr><tr><td>Driver Not Found</td><td class="r">10,124</td><td class="r">9.8%</td></tr>
+</tbody></table></div></main>
+  </div>
+</section>
+
+<section class="page" id="p2">
+  <header class="hdr"><div class="hdr-t">Vehicle Type</div>
+    <div class="hdr-nav"><a href="#p1" class="">Overall</a><a href="#p2" class="on">Vehicle Type</a><a href="#p3" class="">Revenue</a><a href="#p4" class="">Cancellation</a><a href="#p5" class="">Ratings</a></div>
+    <div class="hdr-logo">OLA</div>
+  </header>
+  <div class="body">
+    <aside class="rail">
+      <div class="sl"><div class="sl-h">Date Range</div><div class="sl-v">01 Jul – 31 Jul 2024</div></div>
+      <div class="sl"><div class="sl-h">Vehicle Type</div><div class="sl-v">All (7)</div></div>
+      <div class="sl"><div class="sl-h">Payment Method</div><div class="sl-v">All (4)</div></div>
+      <div class="sl"><div class="sl-h">Booking Status</div><div class="sl-v">All (4)</div></div>
+    </aside>
+    <main class="main">
+<div class="kpis">
+  <div class="kpi"><div class="kv" style="color:#262626">7</div><div class="kl">Vehicle Types</div></div>
+  <div class="kpi"><div class="kv" style="color:#058DC7">1.46M km</div><div class="kl">Total Distance</div></div>
+  <div class="kpi"><div class="kv" style="color:#92D050">22.9 km</div><div class="kl">Avg per Ride</div></div>
+  <div class="kpi"><div class="kv" style="color:#ED561B">10.0 km</div><div class="kl">Auto (short-trip)</div></div>
+</div>
+<div class="grid2">
+  <div class="card"><div class="ct">Top 5 Vehicle Types by Ride Distance</div>
+    <div class="hb"><span class="hbl">Prime Sedan</span><span class="hbt"><span class="hbf" style="width:100.0%;background:#058DC7"></span></span><span class="hbv">234,535 km</span></div><div class="hb"><span class="hbl">E-Bike</span><span class="hbt"><span class="hbf" style="width:98.4%;background:#058DC7"></span></span><span class="hbv">230,842 km</span></div><div class="hb"><span class="hbl">Bike</span><span class="hbt"><span class="hbf" style="width:97.1%;background:#058DC7"></span></span><span class="hbv">227,746 km</span></div><div class="hb"><span class="hbl">Prime Plus</span><span class="hbt"><span class="hbf" style="width:96.9%;background:#058DC7"></span></span><span class="hbv">227,186 km</span></div><div class="hb"><span class="hbl">Mini</span><span class="hbt"><span class="hbf" style="width:96.2%;background:#058DC7"></span></span><span class="hbv">225,703 km</span></div></div>
+  <div class="card"><div class="ct">Average Distance by Vehicle Type</div>
+    <div class="hb"><span class="hbl">Auto</span><span class="hbt"><span class="hbf" style="width:39.9%;background:#92D050"></span></span><span class="hbv">10.0 km</span></div><div class="hb"><span class="hbl">Prime SUV</span><span class="hbt"><span class="hbf" style="width:99.0%;background:#92D050"></span></span><span class="hbv">24.9 km</span></div><div class="hb"><span class="hbl">Bike</span><span class="hbt"><span class="hbf" style="width:99.2%;background:#92D050"></span></span><span class="hbv">24.9 km</span></div><div class="hb"><span class="hbl">Mini</span><span class="hbt"><span class="hbf" style="width:99.3%;background:#92D050"></span></span><span class="hbv">25.0 km</span></div><div class="hb"><span class="hbl">Prime Sedan</span><span class="hbt"><span class="hbf" style="width:99.4%;background:#92D050"></span></span><span class="hbv">25.0 km</span></div><div class="hb"><span class="hbl">Prime Plus</span><span class="hbt"><span class="hbf" style="width:99.6%;background:#92D050"></span></span><span class="hbv">25.0 km</span></div><div class="hb"><span class="hbl">E-Bike</span><span class="hbt"><span class="hbf" style="width:100.0%;background:#92D050"></span></span><span class="hbv">25.1 km</span></div></div>
+</div>
+<div class="card"><div class="ct">Vehicle Performance Matrix</div>
+<table class="tbl"><thead><tr><th>Vehicle Type</th><th class="r">Rides</th><th class="r">Avg km</th><th class="r">Avg Fare</th><th class="r">Avg Rating</th></tr></thead><tbody>
+<tr><td>Prime Sedan</td><td class="r">9,379</td><td class="r">25.0</td><td class="r">₹557</td><td class="r">4.00</td></tr><tr><td>E-Bike</td><td class="r">9,180</td><td class="r">25.1</td><td class="r">₹551</td><td class="r">3.99</td></tr><tr><td>Bike</td><td class="r">9,134</td><td class="r">24.9</td><td class="r">₹544</td><td class="r">3.99</td></tr><tr><td>Prime Plus</td><td class="r">9,075</td><td class="r">25.0</td><td class="r">₹553</td><td class="r">4.01</td></tr><tr><td>Mini</td><td class="r">9,036</td><td class="r">25.0</td><td class="r">₹541</td><td class="r">4.00</td></tr><tr><td>Prime SUV</td><td class="r">8,996</td><td class="r">24.9</td><td class="r">₹542</td><td class="r">4.00</td></tr><tr><td>Auto</td><td class="r">9,167</td><td class="r">10.0</td><td class="r">₹551</td><td class="r">4.00</td></tr>
+</tbody></table></div></main>
+  </div>
+</section>
+
+<section class="page" id="p3">
+  <header class="hdr"><div class="hdr-t">Revenue</div>
+    <div class="hdr-nav"><a href="#p1" class="">Overall</a><a href="#p2" class="">Vehicle Type</a><a href="#p3" class="on">Revenue</a><a href="#p4" class="">Cancellation</a><a href="#p5" class="">Ratings</a></div>
+    <div class="hdr-logo">OLA</div>
+  </header>
+  <div class="body">
+    <aside class="rail">
+      <div class="sl"><div class="sl-h">Date Range</div><div class="sl-v">01 Jul – 31 Jul 2024</div></div>
+      <div class="sl"><div class="sl-h">Vehicle Type</div><div class="sl-v">All (7)</div></div>
+      <div class="sl"><div class="sl-h">Payment Method</div><div class="sl-v">All (4)</div></div>
+      <div class="sl"><div class="sl-h">Booking Status</div><div class="sl-v">All (4)</div></div>
+    </aside>
+    <main class="main">
+<div class="kpis">
+  <div class="kpi"><div class="kv" style="color:#262626">₹35,080,467</div><div class="kl">Total Revenue</div></div>
+  <div class="kpi"><div class="kv" style="color:#92D050">₹548</div><div class="kl">Avg Fare</div></div>
+  <div class="kpi"><div class="kv" style="color:#058DC7">95.2%</div><div class="kl">Cash + UPI Share</div></div>
+  <div class="kpi"><div class="kv" style="color:#ED561B">4.8%</div><div class="kl">Card Adoption</div></div>
+</div>
+<div class="grid2">
+  <div class="card"><div class="ct">Revenue by Payment Method</div>
+    <div class="hb"><span class="hbl">Cash</span><span class="hbt"><span class="hbf" style="width:100.0%;background:#058DC7"></span></span><span class="hbv">₹19,260,316</span></div><div class="hb"><span class="hbl">UPI</span><span class="hbt"><span class="hbf" style="width:73.6%;background:#058DC7"></span></span><span class="hbv">₹14,168,436</span></div><div class="hb"><span class="hbl">Credit Card</span><span class="hbt"><span class="hbf" style="width:6.8%;background:#058DC7"></span></span><span class="hbv">₹1,312,793</span></div><div class="hb"><span class="hbl">Debit Card</span><span class="hbt"><span class="hbf" style="width:2.0%;background:#058DC7"></span></span><span class="hbv">₹338,922</span></div></div>
+  <div class="card"><div class="ct">Top 5 Customers by Total Booking Value</div>
+<table class="tbl"><thead><tr><th>Customer</th><th class="r">Bookings</th><th class="r">Spend</th></tr></thead><tbody>
+<tr><td>CID836942</td><td class="r">4</td><td class="r">₹6,019</td></tr><tr><td>CID868113</td><td class="r">2</td><td class="r">₹5,986</td></tr><tr><td>CID695232</td><td class="r">2</td><td class="r">₹5,962</td></tr><tr><td>CID176493</td><td class="r">2</td><td class="r">₹5,944</td></tr><tr><td>CID902403</td><td class="r">2</td><td class="r">₹5,938</td></tr>
+</tbody></table></div>
+</div>
+<div class="card"><div class="ct">Ride Distance Distribution Per Day</div><svg viewBox="0 0 980 150" class="spark" preserveAspectRatio="none"><polygon points="0,150 0.0,63.3 32.7,48.1 65.3,69.8 98.0,84.7 130.7,77.4 163.3,68.1 196.0,97.1 228.7,83.6 261.3,69.6 294.0,65.8 326.7,84.7 359.3,74.3 392.0,59.4 424.7,57.3 457.3,64.0 490.0,54.6 522.7,78.9 555.3,70.1 588.0,50.8 620.7,72.4 653.3,97.3 686.0,62.1 718.7,40.1 751.3,70.2 784.0,61.2 816.7,55.1 849.3,62.0 882.0,92.7 914.7,78.1 947.3,10.0 980.0,140.0 980,150" fill="#24CBE5" opacity="0.12"/><polyline points="0.0,63.3 32.7,48.1 65.3,69.8 98.0,84.7 130.7,77.4 163.3,68.1 196.0,97.1 228.7,83.6 261.3,69.6 294.0,65.8 326.7,84.7 359.3,74.3 392.0,59.4 424.7,57.3 457.3,64.0 490.0,54.6 522.7,78.9 555.3,70.1 588.0,50.8 620.7,72.4 653.3,97.3 686.0,62.1 718.7,40.1 751.3,70.2 784.0,61.2 816.7,55.1 849.3,62.0 882.0,92.7 914.7,78.1 947.3,10.0 980.0,140.0" fill="none" stroke="#24CBE5" stroke-width="2.5"/></svg>
+  <div class="axis"><span>01 Jul</span><span>15 Jul</span><span>31 Jul</span></div></div></main>
+  </div>
+</section>
+
+<section class="page" id="p4">
+  <header class="hdr"><div class="hdr-t">Cancellation</div>
+    <div class="hdr-nav"><a href="#p1" class="">Overall</a><a href="#p2" class="">Vehicle Type</a><a href="#p3" class="">Revenue</a><a href="#p4" class="on">Cancellation</a><a href="#p5" class="">Ratings</a></div>
+    <div class="hdr-logo">OLA</div>
+  </header>
+  <div class="body">
+    <aside class="rail">
+      <div class="sl"><div class="sl-h">Date Range</div><div class="sl-v">01 Jul – 31 Jul 2024</div></div>
+      <div class="sl"><div class="sl-h">Vehicle Type</div><div class="sl-v">All (7)</div></div>
+      <div class="sl"><div class="sl-h">Payment Method</div><div class="sl-v">All (4)</div></div>
+      <div class="sl"><div class="sl-h">Booking Status</div><div class="sl-v">All (4)</div></div>
+    </aside>
+    <main class="main">
+<div class="kpis">
+  <div class="kpi"><div class="kv" style="color:#ED561B">28,933</div><div class="kl">Total Cancellations</div></div>
+  <div class="kpi"><div class="kv" style="color:#ED561B">28.1%</div><div class="kl">Cancellation Rate</div></div>
+  <div class="kpi"><div class="kv" style="color:#262626">6,542</div><div class="kl">Driver: Personal &amp; Car</div></div>
+  <div class="kpi"><div class="kv" style="color:#ED561B">₹15.95M</div><div class="kl">Revenue Lost</div></div>
+</div>
+<div class="grid2">
+  <div class="card"><div class="ct">Cancelled Rides Reasons (Customer)</div>
+    <div class="hb"><span class="hbl">Driver is not moving towards pickup location</span><span class="hbt"><span class="hbf" style="width:100.0%;background:#EDEF00"></span></span><span class="hbv">3,175</span></div><div class="hb"><span class="hbl">Driver asked to cancel</span><span class="hbt"><span class="hbf" style="width:84.1%;background:#EDEF00"></span></span><span class="hbv">2,670</span></div><div class="hb"><span class="hbl">Change of plans</span><span class="hbt"><span class="hbf" style="width:65.5%;background:#EDEF00"></span></span><span class="hbv">2,081</span></div><div class="hb"><span class="hbl">AC is Not working</span><span class="hbt"><span class="hbf" style="width:49.4%;background:#EDEF00"></span></span><span class="hbv">1,568</span></div><div class="hb"><span class="hbl">Wrong Address</span><span class="hbt"><span class="hbf" style="width:31.7%;background:#EDEF00"></span></span><span class="hbv">1,005</span></div></div>
+  <div class="card"><div class="ct">Cancelled Rides Reasons (Driver)</div>
+    <div class="hb"><span class="hbl">Personal & Car related issue</span><span class="hbt"><span class="hbf" style="width:100.0%;background:#ED561B"></span></span><span class="hbv">6,542</span></div><div class="hb"><span class="hbl">Customer related issue</span><span class="hbt"><span class="hbf" style="width:82.7%;background:#ED561B"></span></span><span class="hbv">5,413</span></div><div class="hb"><span class="hbl">Customer was coughing/sick</span><span class="hbt"><span class="hbf" style="width:55.9%;background:#ED561B"></span></span><span class="hbv">3,654</span></div><div class="hb"><span class="hbl">More than permitted people in there</span><span class="hbt"><span class="hbf" style="width:43.2%;background:#ED561B"></span></span><span class="hbv">2,825</span></div></div>
+</div>
+<div class="card note"><b>Insight:</b> Driver-side cancellations (18,434) are the single largest revenue leak.
+"Personal &amp; Car related issue" alone accounts for 6,542 rides — a supply-reliability problem, not a demand problem.</div></main>
+  </div>
+</section>
+
+<section class="page" id="p5">
+  <header class="hdr"><div class="hdr-t">Ratings</div>
+    <div class="hdr-nav"><a href="#p1" class="">Overall</a><a href="#p2" class="">Vehicle Type</a><a href="#p3" class="">Revenue</a><a href="#p4" class="">Cancellation</a><a href="#p5" class="on">Ratings</a></div>
+    <div class="hdr-logo">OLA</div>
+  </header>
+  <div class="body">
+    <aside class="rail">
+      <div class="sl"><div class="sl-h">Date Range</div><div class="sl-v">01 Jul – 31 Jul 2024</div></div>
+      <div class="sl"><div class="sl-h">Vehicle Type</div><div class="sl-v">All (7)</div></div>
+      <div class="sl"><div class="sl-h">Payment Method</div><div class="sl-v">All (4)</div></div>
+      <div class="sl"><div class="sl-h">Booking Status</div><div class="sl-v">All (4)</div></div>
+    </aside>
+    <main class="main">
+<div class="kpis">
+  <div class="kpi"><div class="kv" style="color:#262626">4.00</div><div class="kl">Avg Driver Rating</div></div>
+  <div class="kpi"><div class="kv" style="color:#92D050">4.00</div><div class="kl">Avg Customer Rating</div></div>
+  <div class="kpi"><div class="kv" style="color:#AEAEAE">-0.001</div><div class="kl">Rating Gap</div></div>
+  <div class="kpi"><div class="kv" style="color:#058DC7">27.3%</div><div class="kl">Rated 4.5+</div></div>
+</div>
+<div class="grid2">
+  <div class="card"><div class="ct">Driver Ratings Distribution</div>
+    <div class="cols" style="height:170px"><div class="col"><div class="colb" style="height:66px;background:#058DC7"></div><div class="coll">3.0</div></div><div class="col"><div class="colb" style="height:138px;background:#058DC7"></div><div class="coll">3.1</div></div><div class="col"><div class="colb" style="height:134px;background:#058DC7"></div><div class="coll">3.2</div></div><div class="col"><div class="colb" style="height:137px;background:#058DC7"></div><div class="coll">3.3</div></div><div class="col"><div class="colb" style="height:132px;background:#058DC7"></div><div class="coll">3.4</div></div><div class="col"><div class="colb" style="height:137px;background:#058DC7"></div><div class="coll">3.5</div></div><div class="col"><div class="colb" style="height:132px;background:#058DC7"></div><div class="coll">3.6</div></div><div class="col"><div class="colb" style="height:136px;background:#058DC7"></div><div class="coll">3.7</div></div><div class="col"><div class="colb" style="height:140px;background:#058DC7"></div><div class="coll">3.8</div></div><div class="col"><div class="colb" style="height:138px;background:#058DC7"></div><div class="coll">3.9</div></div><div class="col"><div class="colb" style="height:134px;background:#058DC7"></div><div class="coll">4.0</div></div><div class="col"><div class="colb" style="height:137px;background:#058DC7"></div><div class="coll">4.1</div></div><div class="col"><div class="colb" style="height:138px;background:#058DC7"></div><div class="coll">4.2</div></div><div class="col"><div class="colb" style="height:134px;background:#058DC7"></div><div class="coll">4.3</div></div><div class="col"><div class="colb" style="height:135px;background:#058DC7"></div><div class="coll">4.4</div></div><div class="col"><div class="colb" style="height:136px;background:#058DC7"></div><div class="coll">4.5</div></div><div class="col"><div class="colb" style="height:135px;background:#058DC7"></div><div class="coll">4.6</div></div><div class="col"><div class="colb" style="height:137px;background:#058DC7"></div><div class="coll">4.7</div></div><div class="col"><div class="colb" style="height:134px;background:#058DC7"></div><div class="coll">4.8</div></div><div class="col"><div class="colb" style="height:131px;background:#058DC7"></div><div class="coll">4.9</div></div><div class="col"><div class="colb" style="height:65px;background:#058DC7"></div><div class="coll">5.0</div></div></div></div>
+  <div class="card"><div class="ct">Customer Ratings Distribution</div>
+    <div class="cols" style="height:170px"><div class="col"><div class="colb" style="height:70px;background:#92D050"></div><div class="coll">3.0</div></div><div class="col"><div class="colb" style="height:133px;background:#92D050"></div><div class="coll">3.1</div></div><div class="col"><div class="colb" style="height:137px;background:#92D050"></div><div class="coll">3.2</div></div><div class="col"><div class="colb" style="height:136px;background:#92D050"></div><div class="coll">3.3</div></div><div class="col"><div class="colb" style="height:137px;background:#92D050"></div><div class="coll">3.4</div></div><div class="col"><div class="colb" style="height:139px;background:#92D050"></div><div class="coll">3.5</div></div><div class="col"><div class="colb" style="height:135px;background:#92D050"></div><div class="coll">3.6</div></div><div class="col"><div class="colb" style="height:139px;background:#92D050"></div><div class="coll">3.7</div></div><div class="col"><div class="colb" style="height:132px;background:#92D050"></div><div class="coll">3.8</div></div><div class="col"><div class="colb" style="height:140px;background:#92D050"></div><div class="coll">3.9</div></div><div class="col"><div class="colb" style="height:139px;background:#92D050"></div><div class="coll">4.0</div></div><div class="col"><div class="colb" style="height:135px;background:#92D050"></div><div class="coll">4.1</div></div><div class="col"><div class="colb" style="height:135px;background:#92D050"></div><div class="coll">4.2</div></div><div class="col"><div class="colb" style="height:134px;background:#92D050"></div><div class="coll">4.3</div></div><div class="col"><div class="colb" style="height:137px;background:#92D050"></div><div class="coll">4.4</div></div><div class="col"><div class="colb" style="height:135px;background:#92D050"></div><div class="coll">4.5</div></div><div class="col"><div class="colb" style="height:133px;background:#92D050"></div><div class="coll">4.6</div></div><div class="col"><div class="colb" style="height:133px;background:#92D050"></div><div class="coll">4.7</div></div><div class="col"><div class="colb" style="height:137px;background:#92D050"></div><div class="coll">4.8</div></div><div class="col"><div class="colb" style="height:140px;background:#92D050"></div><div class="coll">4.9</div></div><div class="col"><div class="colb" style="height:67px;background:#92D050"></div><div class="coll">5.0</div></div></div></div>
+</div>
+<div class="card note"><b>Insight:</b> Both distributions are near-identical and centred on 4.0
+(correlation r = −0.003). Satisfaction is uniformly high across all 7 vehicle types — it is <i>not</i> a differentiator.</div></main>
+  </div>
+</section>
+</body></html>

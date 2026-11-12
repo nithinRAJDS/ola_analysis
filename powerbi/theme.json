@@ -1,0 +1,82 @@
+{
+  "name": "Ola Rides Analytics",
+  "dataColors": [
+    "#058DC7",
+    "#92D050",
+    "#ED561B",
+    "#24CBE5",
+    "#50B432",
+    "#EDEF00",
+    "#64E572",
+    "#AEAEAE"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#262626",
+  "tableAccent": "#058DC7",
+  "good": "#92D050",
+  "neutral": "#EDEF00",
+  "bad": "#ED561B",
+  "maximum": "#058DC7",
+  "center": "#AEAEAE",
+  "minimum": "#F3F3F3",
+  "textClasses": {
+    "callout": {
+      "fontSize": 40,
+      "fontFace": "Poppins",
+      "color": "#262626"
+    },
+    "title": {
+      "fontSize": 16,
+      "fontFace": "Poppins",
+      "color": "#262626"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Poppins",
+      "color": "#262626"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Poppins",
+      "color": "#595959"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E6E6E6" } }, "radius": 8 }],
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#262626" } },
+            "background": { "solid": { "color": "#FFFFFF" } },
+            "alignment": "left",
+            "fontSize": 12,
+            "fontFamily": "Poppins",
+            "bold": true
+          }
+        ],
+        "labels": [{ "fontSize": 9, "fontFamily": "Poppins", "color": { "solid": { "color": "#595959" } } }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F7F9FA" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#F7F9FA" } }, "transparency": 0 }]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [{ "fontSize": 28, "fontFamily": "Poppins", "bold": true, "color": { "solid": { "color": "#262626" } } }],
+        "categoryLabels": [{ "fontSize": 10, "fontFamily": "Poppins", "color": { "solid": { "color": "#595959" } } }]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [{ "fontColor": { "solid": { "color": "#262626" } }, "fontFamily": "Poppins", "fontSize": 10, "bold": true }],
+        "items": [{ "fontColor": { "solid": { "color": "#404040" } }, "fontFamily": "Poppins", "fontSize": 9 }]
+      }
+    }
+  }
+}
